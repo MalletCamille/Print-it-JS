@@ -24,34 +24,10 @@ const slides = [
 		const arrow_right=document.getElementById("arrow_right"); // on définit l'élément flèche droite //
 
 		function updateSlide() {
-			console.log(slides[p].image);
 			let imageSlide = document.getElementsByClassName("banner-img")[0];
 			imageSlide.setAttribute ("src","./assets/images/slideshow/" + slides[p].image);
-			 
-		
-
-
-
-
-
-			// switch (p) {
-			// 	case 0: 
-			// 		imageSlide.setAttribute ("src",'./assets/images/slideshow/slide1.jpg');
-			// 		console.log(imageSlide)
-			// 		break;
-			// 	case 1:
-			// 		imageSlide.setAttribute("src",'./assets/images/slideshow/slide2.jpg');
-			// 		console.log(imageSlide)
-			//    		break;	
-			// 	case 2:
-			// 		imageSlide.setAttribute("src",'./assets/images/slideshow/slide3.jpg');
-			// 		console.log(imageSlide)
-			//    		break;
-			// 	case 3:
-			// 		imageSlide.setAttribute("src",'./assets/images/slideshow/slide4.png');
-			// 		console.log(imageSlide)
-			// 		break;
-		
+			let tagLine = document.querySelector("#banner p");
+			tagLine.innerHTML=slides[p].tagLine;
 		}
 		
 		function clickFlecheGauche () {
