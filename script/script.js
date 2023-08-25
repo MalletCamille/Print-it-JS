@@ -22,6 +22,37 @@ const slides = [
 		container=document.getElementById("banner"); // on définit le container du carrousel //
 		const arrow_left=document.getElementById("arrow_left"); // on définit l'élément flèche gauche //
 		const arrow_right=document.getElementById("arrow_right"); // on définit l'élément flèche droite //
+
+		function updateSlide() {
+			console.log(slides[p].image);
+			let imageSlide = document.getElementsByClassName("banner-img")[0];
+			imageSlide.setAttribute ("src","./assets/images/slideshow/" + slides[p].image);
+			 
+		
+
+
+
+
+
+			// switch (p) {
+			// 	case 0: 
+			// 		imageSlide.setAttribute ("src",'./assets/images/slideshow/slide1.jpg');
+			// 		console.log(imageSlide)
+			// 		break;
+			// 	case 1:
+			// 		imageSlide.setAttribute("src",'./assets/images/slideshow/slide2.jpg');
+			// 		console.log(imageSlide)
+			//    		break;	
+			// 	case 2:
+			// 		imageSlide.setAttribute("src",'./assets/images/slideshow/slide3.jpg');
+			// 		console.log(imageSlide)
+			//    		break;
+			// 	case 3:
+			// 		imageSlide.setAttribute("src",'./assets/images/slideshow/slide4.png');
+			// 		console.log(imageSlide)
+			// 		break;
+		
+		}
 		
 		function clickFlecheGauche () {
 			p-=1;
@@ -29,33 +60,20 @@ const slides = [
 				p=nbrSlides-1;
 			}
 			console.log(p)	
+			updateSlide();
+			console.log("ok")
 		}
 		
 		function clickFlecheDroite () {
 			p+=1;
 			if (p>=nbrSlides) {
 				p=0;
+
 			}
 			console.log(p);	
+			updateSlide();
+			console.log("ok")
 		}	
-		
-		function updateSlide () {
-			switch (p) {
-				case (p===0): 
-					let imageSlide = document.getElementsByClassName("banner-img")[0];
-					imageSlide.setAttribute ("src",'./assets/images/slideshow/slide1.jpg');
-					break;
-				case (p===1):
-					imageSlide.setAttribute("src",'./assets/images/slideshow/slide2.jpg');
-			   		break;	
-				case (p===2):
-				imageSlide.setAttribute("src",'./assets/images/slideshow/slide3.jpg');
-			   	break;
-				case (p===3):
-					imageSlide.setAttribute("src",'./assets/images/slideshow/slide4.jpg');
-					break;
-			}
-		}
 
 		arrow_left.addEventListener("click", clickFlecheGauche);
 		arrow_right.addEventListener("click", clickFlecheDroite);
