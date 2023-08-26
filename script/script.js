@@ -28,16 +28,19 @@ const slides = [
 			imageSlide.setAttribute ("src","./assets/images/slideshow/" + slides[p].image);
 			let tagLine = document.querySelector("#banner p");
 			tagLine.innerHTML=slides[p].tagLine;
+			let dotSelected = document.querySelector(".dot_selected");
+			dotSelected.classList.remove('dot_selected');
+			let updateDotSelected = document.querySelector(".dots :nth-child("+(p+1)+")");
+			updateDotSelected.classList.add("dot_selected");
+
 		}
 		
 		function clickFlecheGauche () {
 			p-=1;
 			if (p<0) {
 				p=nbrSlides-1;
-			}
-			console.log(p)	
+			}	
 			updateSlide();
-			console.log("ok")
 		}
 		
 		function clickFlecheDroite () {
@@ -46,9 +49,7 @@ const slides = [
 				p=0;
 
 			}
-			console.log(p);	
 			updateSlide();
-			console.log("ok")
 		}	
 
 		arrow_left.addEventListener("click", clickFlecheGauche);
@@ -56,7 +57,6 @@ const slides = [
 
 		let elementDots = document.getElementsByClassName("dots")[0]; // On vient sélectionner le 1er élément à l'index 0 //
 		let nbrSlides = slides.length // On compte le nombre d'éléments dans le tableau slides //
-		// console.log(nbrSlides)
 		for (let i=0; i<nbrSlides; i++) { 
 			let nouvelleDiv = document.createElement("div");
 			elementDots.appendChild(nouvelleDiv);
