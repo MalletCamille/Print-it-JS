@@ -32,33 +32,33 @@ const slides = [
 		// Fonction qui update les images, les taglines et les bullet points //
 		function updateSlide() {
 			// Récupération des éléments de la page //
-			let imageSlide = document.querySelector(".banner-img");
-			let tagLine = document.querySelector("#banner p");
+			const imageSlide = document.querySelector(".banner-img");
+			const tagLine = document.querySelector("#banner p");
 			// Attribution des nouvelles valeurs //
 			imageSlide.setAttribute ("src","./assets/images/slideshow/" + slides[p].image);
 			tagLine.innerHTML=slides[p].tagLine;
 			// Update du Bullet Point //
 			// On retire la sélection actuelle //
-			let dotSelected = document.querySelector(".dot_selected");
+			const dotSelected = document.querySelector(".dot_selected");
 			dotSelected.classList.remove('dot_selected');
 			// On sélectionne la nouvelle position //
-			let updateDotSelected = document.querySelector(".dots :nth-child("+(p+1)+")");
+			const updateDotSelected = document.querySelector(".dots :nth-child("+(p+1)+")");
 			updateDotSelected.classList.add("dot_selected");
 
 		}
 		
 		function clickFlecheGauche () {
-			p -= 1;
-			if (p < 0) {
-				p = nbrSlides - 1;
+			position -= 1;
+			if (position < 0) {
+				position = nbrSlides - 1;
 			}	
 			updateSlide();
 		}
 		
 		function clickFlecheDroite () {
-			p += 1;
-			if (p >= nbrSlides) {
-				p = 0;
+			position += 1;
+			if (position >= nbrSlides) {
+				position = 0;
 
 			}
 			updateSlide();
@@ -68,10 +68,10 @@ const slides = [
 		let elementDots = document.querySelector(".dots"); // On vient sélectionner le 1er élément à l'index 0 //
 		let nbrSlides = slides.length // On compte le nombre d'éléments dans le tableau slides //
 		for (let i=0; i<nbrSlides; i++) { 
-			let nouvelleDiv = document.createElement("div");
-			elementDots.appendChild(nouvelleDiv);
+			let newDot = document.createElement("div");
+			elementDots.appendChild(newDot);
 			nouvelleDiv.classList.add('dot');
-			if (i===p) { // si l'index est égal à p alors c'est la 1ère slide qu'on sélectionne par défaut donc on ajoute la classe css dot_selected //
+			if (i===position) { // si l'index est égal à p alors c'est la 1ère slide qu'on sélectionne par défaut donc on ajoute la classe css dot_selected //
 				nouvelleDiv.classList.add('dot_selected'); // sinon rien donc pas besoin d'indiquer un else //
 			} 		
 		} 
