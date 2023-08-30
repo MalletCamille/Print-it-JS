@@ -32,7 +32,7 @@ const slides = [
 		// Fonction qui update les images, les taglines et les bullet points //
 		function updateSlide() {
 			// Récupération des éléments de la page //
-			let imageSlide = document.getElementsByClassName("banner-img")[0];
+			let imageSlide = document.querySelector(".banner-img");
 			let tagLine = document.querySelector("#banner p");
 			// Attribution des nouvelles valeurs //
 			imageSlide.setAttribute ("src","./assets/images/slideshow/" + slides[p].image);
@@ -65,7 +65,7 @@ const slides = [
 		}	
 
 		// Ajout des bullet points //
-		let elementDots = document.getElementsByClassName("dots")[0]; // On vient sélectionner le 1er élément à l'index 0 //
+		let elementDots = document.querySelector(".dots"); // On vient sélectionner le 1er élément à l'index 0 //
 		let nbrSlides = slides.length // On compte le nombre d'éléments dans le tableau slides //
 		for (let i=0; i<nbrSlides; i++) { 
 			let nouvelleDiv = document.createElement("div");
