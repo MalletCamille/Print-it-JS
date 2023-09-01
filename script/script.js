@@ -71,7 +71,7 @@ const slides = [
 			let newDot = document.createElement("div");
 			elementDots.appendChild(newDot);
 			newDot.classList.add('dot');
-			if (i===position) { // si l'index est égal à p alors c'est la 1ère slide qu'on sélectionne par défaut donc on ajoute la classe css dot_selected //
+			if (i===position) { // si l'index est égal à position alors c'est la 1ère slide qu'on sélectionne par défaut donc on ajoute la classe css dot_selected //
 				newDot.classList.add('dot_selected'); // sinon rien donc pas besoin d'indiquer un else //
 			} 		
 		} 
